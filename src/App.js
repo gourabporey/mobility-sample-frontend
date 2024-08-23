@@ -1,17 +1,11 @@
 import React from 'react';
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import {
+  Routes, Route, BrowserRouter,
+} from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
-import SearchScreen from './screens/SearchScreen';
-import SearchResult from './screens/SearchResult';
-import SelectJourney from './screens/SelectJourney';
-import InitScreen from './screens/InitScreen';
-import ConfirmScreen from './screens/ConfirmScreen';
-import TrackScreen from './screens/TrackScreen';
-import StatusScreen from './screens/StatusScreen';
-import GooglePlacesApiLoader from './api/googlePlacesApiLoader';
-
-const libraries = ['places'];
+import LandingPage from './screens/LandingPage';
+import LoanOfferScreen from './screens/LoanOfferScreen';
 
 const theme = createTheme({
   palette: {
@@ -20,29 +14,18 @@ const theme = createTheme({
     },
   },
 });
-const App = () => {
-  const { isLoaded } = GooglePlacesApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-    libraries,
-  });
-  return (
-    <div>
-      <ThemeProvider theme={theme}>
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<SearchScreen isMapsLoaded={isLoaded} />} />
-            <Route path="/search" element={<SearchResult isMapsLoaded={isLoaded} />} />
-            <Route path="/select" element={<SelectJourney />} />
-            <Route path="/init" element={<InitScreen isMapsLoaded={isLoaded} />} />
-            <Route path="/confirm" element={<ConfirmScreen />} />
-            <Route path="/track" element={<TrackScreen />} />
-            <Route path="/status" element={<StatusScreen />} />
-          </Routes>
-        </HashRouter>
-      </ThemeProvider>
-    </div>
-  );
-};
+
+const App = () => (
+  <div>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/personal-loan-offers" element={<LoanOfferScreen />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
+  </div>
+);
 
 export default App;
