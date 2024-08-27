@@ -8,7 +8,6 @@ const Header = ({ onBackClick }) => (
     container
     paddingLeft={1}
     paddingY={0.5}
-    bgcolor="white"
     position="fixed"
     top={0}
     height="9vh"
