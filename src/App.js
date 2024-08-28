@@ -6,6 +6,7 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import LandingPage from './screens/LandingPage';
 import LoanOfferScreen from './screens/LoanOfferScreen';
+import PersonalLoanDetails from './screens/PersonalLoanDetails';
 
 const theme = createTheme({
   palette: {
@@ -21,6 +22,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/personal-loan-details" element={<PersonalLoanDetails />} />
           <Route path="/personal-loan-offers" element={<LoanOfferScreen />} />
         </Routes>
       </BrowserRouter>
