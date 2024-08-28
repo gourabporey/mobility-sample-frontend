@@ -11,6 +11,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import List from '@mui/material/List';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import setBodyColor from '../utilities/setBodyColor';
 
 const FinancialProductOverview = () => {
   const [value, setValue] = useState('1');
@@ -128,21 +129,31 @@ const FinancialProductOverview = () => {
     </Box>
   );
 };
-const LandingPage = () => (
+const LandingPage = () => {
+  setBodyColor('white');
 
-  <>
-    <Header />
-    <Grid
-      container
-      paddingY={20}
-      direction="column"
-      style={{ placeItems: 'center', gap: '20px' }}
-    >
-      <h1 style={{ color: '#3C77BA' }}> Domains Live On The Network </h1>
-      <FinancialProductOverview />
-    </Grid>
-    <Footer />
-  </>
-);
+  return (
+    <>
+      <Header />
+      <Grid
+        container
+        paddingY={20}
+        direction="column"
+        style={{ placeItems: 'center', gap: '20px' }}
+      >
+        <h1 style={{
+          background: 'linear-gradient(to right, #19486d, #45b1ff)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+        }}
+        >
+          Domains live on the network
+        </h1>
+        <FinancialProductOverview />
+      </Grid>
+      <Footer />
+    </>
+  );
+};
 
 export default LandingPage;

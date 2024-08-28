@@ -10,6 +10,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FeatherArrowRight from '../assets/images/feather-arrow-right.svg';
 import CongratsImage from '../assets/images/img_congrats.svg';
+import setBodyColor from '../utilities/setBodyColor';
 
 const DetailsBox = ({ navigateToLoanOffer }) => (
   <Box
@@ -78,6 +79,7 @@ const DetailsBox = ({ navigateToLoanOffer }) => (
 );
 
 const PersonalLoanDetails = () => {
+  setBodyColor('#DDEBF7');
   const navigate = useNavigate();
   const [redirecting, setRedirecting] = useState(false);
 
