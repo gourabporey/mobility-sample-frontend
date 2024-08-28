@@ -1,8 +1,12 @@
+:root {
+  --body-color: white;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  background-color: #DDEBF7;
+  background-color: var(--body-color);
 }
 
 code {
