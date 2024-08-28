@@ -21,32 +21,32 @@ import setBodyColor from '../utilities/setBodyColor';
 const DetailsBox = ({ navigateToLoanOffer }) => {
   const contentMapper = [
     {
-      image: <AdsClickIcon style={{ fontSize: '50px', color: '#4882C4' }} />,
+      image: <AdsClickIcon style={{ fontSize: '40px', color: '#4882C4' }} />,
       text: 'Browse through the available loan offers on the platform and select the one that suits your needs.',
       number: 1,
     },
     {
-      image: <ImageSearchOutlinedIcon style={{ fontSize: '50px', color: '#4882C4' }} />,
+      image: <ImageSearchOutlinedIcon style={{ fontSize: '40px', color: '#4882C4' }} />,
       text: 'Verify your identity through Aadhaar authentication for secure processing.',
       number: 2,
     },
     {
-      image: <HourglassEmptyOutlinedIcon style={{ fontSize: '50px', color: '#4882C4' }} />,
+      image: <HourglassEmptyOutlinedIcon style={{ fontSize: '40px', color: '#4882C4' }} />,
       text: 'Confirm your personal and professional information to receive a customized loan offer.',
       number: 3,
     },
     {
-      image: <AccountBoxOutlinedIcon style={{ fontSize: '50px', color: '#4882C4' }} />,
+      image: <AccountBoxOutlinedIcon style={{ fontSize: '40px', color: '#4882C4' }} />,
       text: 'Create an account on the platform and specify your loan requirements.',
       number: 4,
     },
     {
-      image: <RateReviewOutlinedIcon style={{ fontSize: '50px', color: '#4882C4' }} />,
+      image: <RateReviewOutlinedIcon style={{ fontSize: '40px', color: '#4882C4' }} />,
       text: 'Carefully review the final loan details and provide your consent.',
       number: 5,
     },
     {
-      image: <DoneOutlineOutlinedIcon style={{ fontSize: '50px', color: '#4882C4' }} />,
+      image: <DoneOutlineOutlinedIcon style={{ fontSize: '40px', color: '#4882C4' }} />,
       text: 'The loan amount will be instantly disbursed. You can track your loan status on your personal dashboard.',
       number: 6,
     },
