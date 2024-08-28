@@ -8,16 +8,26 @@ import { CircularProgress } from '@mui/material';
 import Api from '../api/Api';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import FeatherArrowRight from '../assets/images/feather-arrow-right.svg';
+import CongratsImage from '../assets/images/img_congrats.svg';
 
 const DetailsBox = ({ navigateToLoanOffer }) => (
-  <Box boxShadow={1} style={{ width: '60%', padding: '24px', borderRadius: '10px', backgroundColor: 'white' }}>
+  <Box
+    boxShadow="0px 4px 12px #7B7B7B29"
+    style={{
+      width: '50%', padding: '24px', borderRadius: '10px', backgroundColor: 'white',
+    }}
+  >
     <Grid container direction="column" gap={2} alignItems="center">
       <Grid item container gap="20px">
         <Box sx={{ width: '100%', typography: 'body1' }}>
           <Grid item>
-            <Typography variant="body1"
-              style={{ textAlign: 'left', padding: '20px', color: '#3B3B3B' }}>
-              &emsp; Welcome to [Company Name] on the ONDC
+            <Typography
+              variant="body1"
+              style={{ textAlign: 'left', padding: '10px', color: '#3B3B3B' }}
+              fontSize="15px"
+            >
+              Welcome to [Company Name] on the ONDC
               platform, where
               {' '}
               <b>
@@ -30,7 +40,7 @@ const DetailsBox = ({ navigateToLoanOffer }) => (
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1" style={{ textAlign: 'left', padding: '20px', color: '#3B3B3B' }}>
+            <Typography variant="body1" fontSize="15px" style={{ textAlign: 'left', padding: '10px', color: '#3B3B3B' }}>
               With our intuitive interface and transparent processes, you can
               explore a range of loan products, compare options, and apply within
               minutes. Our commitment to simplicity, security, and speed ensures
@@ -38,7 +48,7 @@ const DetailsBox = ({ navigateToLoanOffer }) => (
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1" style={{ textAlign: 'left', padding: '20px', color: '#3B3B3B' }}>
+            <Typography variant="body1" fontSize="15px" style={{ textAlign: 'left', padding: '10px', color: '#3B3B3B' }}>
               Discover how easy it is to secure a loan with us on ONDC –
               empowering you to grow, innovate, and achieve your financial
               goals.
@@ -56,15 +66,15 @@ const DetailsBox = ({ navigateToLoanOffer }) => (
                 fontSize: '18px',
               }}
               onClick={navigateToLoanOffer}
+              endIcon={<img src={FeatherArrowRight} alt="right-arrow" />}
             >
               Avail Loan
-              <img src='/Users/swanasimran.singhthoughtworks.com/Projects/ComposableBanking/mobility-sample-frontend/Icon feather-arrow-right.svg'/>
             </Button>
           </Grid>
         </Box>
-      </Grid >
-    </Grid >
-  </Box >
+      </Grid>
+    </Grid>
+  </Box>
 );
 
 const PersonalLoanDetails = () => {
@@ -105,11 +115,11 @@ const PersonalLoanDetails = () => {
           container
           paddingY={20}
           direction="column"
-          style={{ placeItems: 'center', gap: '20px' }}
+          style={{ placeItems: 'center' }}
         >
-          <Grid item container alignItems="center" justifyContent="center">
-            <img src={process.env.PUBLIC_URL + '/img_congrats.svg'} alt="Congrats" />
-            <h1>Avail Loan faster than ever!</h1>
+          <Grid item container alignItems="center" justifyContent="center" gap="20px">
+            <img src={CongratsImage} alt="Congrats" />
+            <Typography variant="h1" fontSize="26px" letterSpacing="-0.38px">Avail Loan faster than ever!</Typography>
           </Grid>
           <DetailsBox navigateToLoanOffer={navigateToLoanOffer} />
         </Grid>

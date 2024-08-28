@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { ListItem } from '@mui/material';
-import ListItemText from '@mui/material/ListItemText';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -13,21 +12,28 @@ import List from '@mui/material/List';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const FinancialProductOverview = ({ navigateToLoanOffer }) => {
-  const [value, setValue] = React.useState('1');
+const FinancialProductOverview = () => {
+  const [value, setValue] = useState('1');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   return (
-    <Box boxShadow={1} style={{ width: '60%', padding: '1fr', borderRadius: '1fr', backgroundColor: 'white' }}>
+    <Box
+      boxShadow={1}
+      style={{
+        width: '60%', padding: '1fr', borderRadius: '1fr', backgroundColor: 'white',
+      }}
+    >
       <Grid container direction="column" gap={2} alignItems="center">
         <Grid item container gap="1fr">
           <Box sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={value}>
               <Box sx={{ borderBottom: 1, borderColor: '#3C77BA' }}>
-                <TabList onChange={handleChange} aria-label="lab API tabs example" TabIndicatorProps={{ style: { backgroundColor: '#3C77BA' } }} >
-                  <Tab label="Financial Services" value="1"
+                <TabList onChange={handleChange} aria-label="lab API tabs example" TabIndicatorProps={{ style: { backgroundColor: '#3C77BA' } }}>
+                  <Tab
+                    label="Financial Services"
+                    value="1"
                     sx={{
                       '&[aria-selected="true"]': {
                         borderBottom: '2px solid #3C77BA',
@@ -36,8 +42,11 @@ const FinancialProductOverview = ({ navigateToLoanOffer }) => {
                       '&:hover': {
                         color: '#3C77BA',
                       },
-                    }} />
-                  <Tab label="Mobility" value="2"
+                    }}
+                  />
+                  <Tab
+                    label="Mobility"
+                    value="2"
                     sx={{
                       '&[aria-selected="true"]': {
                         borderBottom: '2px solid #3C77BA',
@@ -46,8 +55,11 @@ const FinancialProductOverview = ({ navigateToLoanOffer }) => {
                       '&:hover': {
                         color: '#3C77BA',
                       },
-                    }} />
-                  <Tab label="Food & Beverage" value="3"
+                    }}
+                  />
+                  <Tab
+                    label="Food & Beverage"
+                    value="3"
                     sx={{
                       '&[aria-selected="true"]': {
                         borderBottom: '2px solid #3C77BA',
@@ -56,7 +68,8 @@ const FinancialProductOverview = ({ navigateToLoanOffer }) => {
                       '&:hover': {
                         color: '#3C77BA',
                       },
-                    }} />
+                    }}
+                  />
                 </TabList>
               </Box>
               <TabPanel value="1">
@@ -125,12 +138,11 @@ const LandingPage = () => (
       direction="column"
       style={{ placeItems: 'center', gap: '20px' }}
     >
-      <h1 style={{color: '#3C77BA'}}> Domains Live On The Network </h1>
+      <h1 style={{ color: '#3C77BA' }}> Domains Live On The Network </h1>
       <FinancialProductOverview />
     </Grid>
     <Footer />
   </>
 );
-
 
 export default LandingPage;
