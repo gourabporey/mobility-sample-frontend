@@ -87,35 +87,35 @@ const FinancialProductOverview = () => {
                       Unsecured Personal Loan
                     </Link>
                   </ListItem>
-                  <ListItem button disabled>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}>
                     Unsecured GST based Invoice Loans
                   </ListItem>
-                  <ListItem button disabled> Unsecured Purchase Finance </ListItem>
-                  <ListItem button disabled> Unsecured Working Capital Lines </ListItem>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}> Unsecured Purchase Finance </ListItem>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}> Unsecured Working Capital Lines </ListItem>
                 </List>
               </TabPanel>
               <TabPanel value="2">
                 <List>
-                  <ListItem button>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}>
                     Autos
                   </ListItem>
-                  <ListItem button disabled>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}>
                     Cabs
                   </ListItem>
-                  <ListItem button disabled> Metro Rail </ListItem>
-                  <ListItem button disabled> Flights </ListItem>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}> Metro Rail </ListItem>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}> Flights </ListItem>
                 </List>
               </TabPanel>
               <TabPanel value="3">
                 <List>
-                  <ListItem button>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}>
                     Continental
                   </ListItem>
-                  <ListItem button disabled>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}>
                     Middle Eastern
                   </ListItem>
-                  <ListItem button disabled> North Indian </ListItem>
-                  <ListItem button disabled> Regional Indian </ListItem>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}> North Indian </ListItem>
+                  <ListItem button sx={{ cursor: 'not-allowed', color: '#808080' }}> Regional Indian </ListItem>
                 </List>
               </TabPanel>
             </TabContext>
