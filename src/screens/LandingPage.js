@@ -13,63 +13,122 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import setBodyColor from '../utilities/setBodyColor';
 
+const selectedTabsStyle = {
+  '&[aria-selected="true"]': {
+    margin: '5px',
+    borderRadius: '10px',
+    background: 'linear-gradient(90deg, #1c75bc, #4aa1e0 51%, #1c75bc)'
+      + ' var(--x, 100%) / 200%',
+    color: 'white',
+  },
+  '&:hover': {
+    cursor: 'pointer',
+  },
+};
+
+// eslint-disable-next-line no-unused-vars
+const createServiceTab = ({ serviceId, serviceLabel }) => (
+  <Tab label={serviceLabel} value={serviceId} sx={selectedTabsStyle} />
+);
+
+// eslint-disable-next-line no-unused-vars
+const createListedServices = (services) => services.map((service) => {
+  const { serviceId, serviceSubLabel, serviceItems } = service;
+  return (
+    <TabPanel value={serviceId}>
+      {serviceSubLabel && (
+      <Typography variant="body1" sx={{ color: '#3C77BA' }} fontWeight="600">
+          {serviceSubLabel}
+      </Typography>
+      )}
+      (
+      <List>
+        {serviceItems.map((name, link, active = false) => (
+          <ListItem disabled={!active}>
+            {link
+              ? (<Link to={link}>{name}</Link>)
+              : name}
+          </ListItem>
+        ))}
+      </List>
+      )
+    </TabPanel>
+  );
+});
+
 const FinancialProductOverview = () => {
   const [value, setValue] = useState('1');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  // eslint-disable-next-line no-unused-vars
+  const services = [
+    {
+      serviceId: '1',
+      serviceLabel: 'Financial Services',
+      serviceSubLabel: 'Credit',
+      serviceItems: [{
+        name: 'Unsecured Personal Loan',
+        link: '/personal-loan-details',
+        active: true,
+      },
+      { name: 'Unsecured GST based Invoice Loans' },
+      { name: 'Unsecured Working Capital Lines' },
+      { name: 'Unsecured Purchase Finance' },
+      ],
+    }, {
+      serviceId: '2',
+      serviceLabel: 'Mobility',
+      serviceItems: [
+        { name: 'Autos', active: true },
+        { name: 'Cabs' },
+        { name: 'Metro Rail' },
+        { name: 'Flights' },
+      ],
+    }, {
+      serviceId: '3',
+      serviceLabel: 'Food & Beverage',
+      serviceItems: [
+        { name: 'Continental', active: true },
+        { name: 'Middle Eastern' },
+        { name: 'North Indian' },
+        { name: 'Regional Indian' }],
+    },
+  ];
+
   return (
     <Box
-      boxShadow={1}
       style={{
-        width: '60%', padding: '1fr', borderRadius: '1fr', backgroundColor: 'white',
+        width: '60%', padding: '1fr', borderRadius: '1fr',
       }}
     >
       <Grid container direction="column" gap={2} alignItems="center">
         <Grid item container gap="1fr">
           <Box sx={{ width: '100%', typography: 'body1' }}>
             <TabContext value={value}>
-              <Box sx={{ borderBottom: 1, borderColor: '#3C77BA' }}>
-                <TabList onChange={handleChange} aria-label="lab API tabs example" TabIndicatorProps={{ style: { backgroundColor: '#3C77BA' } }}>
+              <Box
+                sx={{ borderBottom: 1, borderColor: '#3C77BA' }}
+                border="1px solid #dbe6ef"
+                bgcolor="#eff8ff"
+                borderRadius="1rem"
+              >
+                <TabList onChange={handleChange} aria-label="lab API tabs example" TabIndicatorProps={{ style: { backgroundColor: 'transparent' } }}>
                   <Tab
                     label="Financial Services"
                     value="1"
-                    sx={{
-                      '&[aria-selected="true"]': {
-                        borderBottom: '2px solid #3C77BA',
-                        color: '#3C77BA',
-                      },
-                      '&:hover': {
-                        color: '#3C77BA',
-                      },
-                    }}
+                    sx={selectedTabsStyle}
                   />
                   <Tab
                     label="Mobility"
                     value="2"
-                    sx={{
-                      '&[aria-selected="true"]': {
-                        borderBottom: '2px solid #3C77BA',
-                        color: '#3C77BA',
-                      },
-                      '&:hover': {
-                        color: '#3C77BA',
-                      },
-                    }}
+                    sx={selectedTabsStyle}
                   />
                   <Tab
                     label="Food & Beverage"
                     value="3"
-                    sx={{
-                      '&[aria-selected="true"]': {
-                        borderBottom: '2px solid #3C77BA',
-                        color: '#3C77BA',
-                      },
-                      '&:hover': {
-                        color: '#3C77BA',
-                      },
-                    }}
+                    sx={selectedTabsStyle}
                   />
                 </TabList>
               </Box>
@@ -122,15 +181,13 @@ const FinancialProductOverview = () => {
             </TabContext>
           </Box>
         </Grid>
-        <Grid item>
-          <Grid container />
-        </Grid>
       </Grid>
     </Box>
   );
 };
+
 const LandingPage = () => {
-  setBodyColor('white');
+  setBodyColor('#fbfdff');
 
   return (
     <>

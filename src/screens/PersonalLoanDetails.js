@@ -104,7 +104,7 @@ const DetailsBox = ({ navigateToLoanOffer }) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          height: 350
+          height: 350,
         }}
       >
         {contentMapper.map((content, index) => (
@@ -114,7 +114,7 @@ const DetailsBox = ({ navigateToLoanOffer }) => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              alignSelf: index % 2 == 0 ? 'flex-start' : 'flex-end', 
+              alignSelf: index % 2 === 0 ? 'flex-start' : 'flex-end',
             }}
           >
             <div
@@ -141,7 +141,7 @@ const DetailsBox = ({ navigateToLoanOffer }) => {
               }}
             >
               <div style={{ fontSize: 75, color: '#EBEBEB' }}>{content.number}</div>
-              <div style={{fontSize: '16px', color: '#3b3b3b'}}>{content.text}</div>
+              <div style={{ fontSize: '16px', color: '#3b3b3b' }}>{content.text}</div>
             </div>
           </div>
         ))}

@@ -43,9 +43,7 @@ const LoanOfferV2 = ({ offer }) => (
   >
     <Grid container>
       <Grid item xs={2} md={2}>
-        <div>
-          <img src={offer.imageUrl} alt={offer.lenderName} style={{ width: '50%' }} />
-        </div>
+        <img src={offer.imageUrl} alt={offer.lenderName} style={{ width: '50%' }} />
       </Grid>
       <Grid item xs={6} md={6}>
         <Grid container gap="10px">
@@ -83,12 +81,12 @@ const LoanOfferV2 = ({ offer }) => (
   </Box>
 );
 
-const extractOfferInfo = ({ message: { catalog }, context }) => ({
-  lenderName: catalog.descriptor.name,
-  interestRate: catalog.providers[0].items[0].tags[0].list.find((tag) => tag.descriptor.code === 'MIN_INTEREST_RATE').value,
-  imageUrl: catalog.providers[0].descriptor.images[0].url,
-  websiteUrl: context.bpp_uri,
-  amount: catalog.providers[0].items[0].tags[0].list.find((tag) => tag.descriptor.code === 'MAX_LOAN_AMOUNT').value,
+const extractOfferInfo = (provider) => ({
+  lenderName: provider.descriptor.long_desc,
+  interestRate: provider.items[0].tags[0].list.find((tag) => tag.descriptor.code === 'MIN_INTEREST_RATE').value,
+  imageUrl: provider.descriptor.images[0].url,
+  websiteUrl: provider.descriptor.websiteUrl,
+  amount: provider.items[0].tags[0].list.find((tag) => tag.descriptor.code === 'MAX_LOAN_AMOUNT').value,
 });
 
 const LoanOfferScreen = () => {
@@ -126,15 +124,15 @@ const LoanOfferScreen = () => {
         padding: '20px',
       }}
     >
-      {loanOffers.map((bpp) => {
-        const offer = extractOfferInfo(bpp);
+      {loanOffers.flatMap((bpp) => bpp.message.catalog.providers.map((provider) => {
+        const offer = extractOfferInfo(provider);
         return (
           <LoanOfferV2
-            key={bpp.context.bpp_id}
+            key={provider.id}
             offer={offer}
           />
         );
-      })}
+      }))}
     </Grid>
   );
 
